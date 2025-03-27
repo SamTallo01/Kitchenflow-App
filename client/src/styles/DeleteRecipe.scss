@@ -1,0 +1,31 @@
+@use "./App.scss";
+
+.popup-delete {
+  @include App.flexbox(column, center, center, 1rem);
+
+  .popup-title {
+    @include App.flexbox(row, space-between, center, 0, 1.5rem);
+    width: 100%;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .button-container-delete {
+    @include App.flexbox(row, space-evenly, center);
+    width: 100%;
+
+    .keep-btn {
+      @include App.secondary-button;
+      width: 45%;
+      padding: 1vh 2vw;
+    }
+
+    .delete-btn {
+      @include App.primary-button;
+      width: 45%;
+      padding: 1vh 2vw;
+    }
+  }
+}

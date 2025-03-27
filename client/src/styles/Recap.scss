@@ -1,0 +1,139 @@
+@use "./App.scss";
+
+.recap {
+    @include App.flexbox(column, center, center);
+    height: 90vh;
+
+    
+    .recap-content {
+      background: App.$background-color;    
+      border-radius: 10px;   
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      max-width: 50vw;        
+      width: 100%;            
+      padding: 20px;     
+      text-align: center;     
+    }
+    
+    .separator{
+      width: 65%;
+      height: 4px;
+      background-color: App.$primary-color;
+      border: 0px;
+      border-radius: 10px;
+    }
+
+    .time-section {
+      @include App.flexbox(column, center, center);
+    
+      .time-header {
+        @include App.flexbox(row, space-between, center); 
+        width: 100%;                   
+        max-width: 600px;              
+        text-align: center;
+
+        .time-title {
+          font-size: App.$font-size-large; 
+          flex: 1;                    
+        }
+      }
+    
+      .time-content {
+        display: flex;
+        justify-content: space-between; // Dispone "19 min" e "6 min" ai lati
+        align-items: center;            // Allinea verticalmente al centro
+        width: 100%;
+        max-width: 600px;
+        max-height: 40px;
+        margin-bottom : 2rem;
+        .time-text,
+        .saved-time {
+          font-size: App.$font-size-medium; // Dimensione del testo
+          flex: 1;                      // Ogni valore occupa lo stesso spazio
+          text-align: center;           // Testo centrato nella propria colonna
+        }
+    
+      }
+    }
+}
+
+
+.navigation {
+    margin-top : 5rem;
+    text-align: center;
+    padding :0;
+    height: 7vh;
+
+    .home-btn {
+        @include App.primary-button;
+        width: 20%;
+        padding :0;
+        height: 100%;
+      }
+      
+    .profile-button {
+        @include App.secondary-button;
+        width: 20%;
+        margin-right : 10rem;
+        padding :0;
+        height: 100%;
+    }
+}
+
+
+.badges-section {
+    @include App.flexbox(column, center, center);
+
+    .badges {
+      @include App.flexbox(row, center, normal, 0, 2rem);
+
+      .badge-container {
+        @include App.flexbox(column, top, center);
+
+        .badge {
+          @include App.flexbox(column, center, center, 0.5rem);
+          width: 15vh;
+          height: 15vh;
+          padding: 0.5rem;
+          background-color: App.$primary-color;
+          color: white;
+          text-align: center;
+          clip-path: polygon(50% 0%, 100% 40%, 82% 100%, 18% 100%, 0% 40%);
+          transition: transform 0.2s ease;
+
+          &:active {
+            transform: scale(1.15);
+          }
+
+          &.locked {
+            background-color: #ccc;
+            opacity: 0.9;
+
+            .lock-icon {
+              color: App.$primary-color;
+              font-size: 3vh;
+            }
+          }
+
+          .badge-title {
+            font-weight: bold;
+            font-size: App.$font-size-medium;
+          }
+
+          p {
+            margin: 0;
+          }
+        }
+
+        .redeem-btn {
+          margin-top: 10%;
+          padding: 1.5vh 2.5vh;
+          border: none;
+          border-radius: 20px;
+          background-color: black;
+          color: white;
+          font-size: App.$font-size-small;
+        }
+      }
+    }
+  }

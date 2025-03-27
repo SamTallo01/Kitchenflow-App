@@ -1,0 +1,113 @@
+@use "../styles/App.scss" as *;
+
+@keyframes shake-animation {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-3px);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake {
+  animation: shake-animation 0.5s ease-in-out infinite;
+}
+
+.timer-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 60px;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  background-color: $active-color;
+
+  &.active {
+    width: 70px;
+  }
+}
+
+// TIMER SELECTOR
+.timer-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.timer-column {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+
+.options {
+  height: 120px; /* Display 3 options */
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+}
+
+.options::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Chrome */
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px; /* Height of one option */
+  color: #aaa;
+  font-size: 18px;
+  scroll-snap-align: center;
+  transition: color 0.2s ease-in-out;
+}
+
+.option.selected {
+  color: #000;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.empty-option {
+  height: 40px;
+  pointer-events: none;
+}
+
+.label {
+  margin-top: 10px;
+  color: #555;
+  font-size: 14px;
+}
+
+/* Highlighted sticky indicator */
+.options::before {
+  position: absolute;
+  top: 40px; /* Sticky highlight position */
+  right: 0;
+  left: 0;
+  height: 40px;
+  border-top: 2px solid #ddd;
+  border-bottom: 2px solid #ddd;
+  content: "";
+  pointer-events: none;
+}
+
+.timer-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 20px;
+}

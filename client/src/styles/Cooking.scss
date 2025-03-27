@@ -1,0 +1,163 @@
+@use "./App.scss";
+
+.cooking {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.step-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 380px;
+  height: 60px;
+  background-color: App.$primary-color;
+  color: App.$text-color;
+
+  &:not(.active) + .timer-box {
+    background-color: App.$primary-color;
+  }
+
+  &.active {
+    background-color: App.$secondary-color;
+  }
+}
+
+.step-timer-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &:first-child .step-box {
+    border-top-right-radius: 0.5rem;
+    border-top-left-radius: 0.5rem;
+  }
+
+  &:first-child .step-box:has(+ .timer-box) {
+    border-top-right-radius: 0;
+  }
+
+  &:last-child .step-box {
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
+
+  &:last-child .step-box:has(+ .timer-box) {
+    border-bottom-right-radius: 0;
+  }
+}
+
+.left-column {
+  @include App.flexbox(column, center, start, 1rem);
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  transform: translateY(-50%);
+
+  .steps-header {
+    @include App.flexbox(row, start, center, 0, 1rem);
+    position: relative;
+    left: 200px;
+    transform: translateX(-50%);
+
+    h2 {
+      margin: 0;
+    }
+  }
+}
+
+.previous {
+  @include App.secondary-button;
+  display: flex;
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 60px;
+  padding: 0%;
+}
+
+.next {
+  @include App.secondary-button;
+  display: flex;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 60px;
+  padding: 0%;
+}
+
+.finish {
+  @include App.primary-button;
+  display: flex;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 60px;
+  padding: 0%;
+}
+
+.popup-title {
+  @include App.flexbox(row, space-between, center, 0, 1.5rem);
+  width: 100%;
+
+  h2 {
+    margin: 0;
+  }
+}
+
+.flow-button {
+  @include App.secondary-button;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5vh 1vw;
+}
+
+/* Targeting the default checkbox */
+input[type="checkbox"] {
+  width: 20px; /* Custom width */
+  height: 20px; /* Custom height */
+  accent-color: App.$primary-color; /* Change checkbox color */
+  cursor: pointer; /* Add pointer cursor */
+}
+
+/* For a custom styled checkbox */
+.custom-checkbox {
+  display: flex;
+  appearance: none; /* Remove default styling */
+  position: absolute;
+  left: 3%;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 2px solid white; /* Custom border */
+  border-radius: 4px; /* Optional: rounded corners */
+  background-color: transparent; /* Custom background */
+  cursor: pointer;
+}
+
+.custom-checkbox:checked {
+  border-color: transparent;
+
+  background-color: transparent; /* Custom background when checked */
+}
+
+.custom-checkbox:checked::after {
+  position: absolute;
+  content: "✔"; /* Checkmark or other symbol */
+  color: white;
+  font-size: 28px;
+}

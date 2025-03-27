@@ -1,0 +1,158 @@
+$primary-color: #c24b48;
+$active-color: #c70501;
+$negative-primary-color: white;
+$secondary-color: #c70501;
+$border-color: #6f2a0d;
+$background-color: #eff0e7;
+/* Old background color: #e9eae0 */
+$text-color: white;
+
+@font-face {
+  font-weight: normal;
+  src:
+    local("ABeeZeeRegular"),
+    url("../fonts/ABeeZee-Regular.ttf") format("truetype");
+  font-family: "ABeeZeeRegular";
+}
+
+$font-size-base: 2ch;
+$font-size-small: 1.5ch;
+$font-size-medium: 2.5ch;
+$font-size-large: 3ch;
+
+@mixin flexbox(
+  $direction: row,
+  $justify: flex-start,
+  $align: stretch,
+  $row-gap: normal,
+  $column-gap: normal,
+  $wrap: nowrap
+) {
+  display: flex;
+  column-gap: $column-gap;
+  row-gap: $row-gap;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+@mixin button {
+  padding: 2vh 4vw;
+  border: 2px solid $primary-color;
+  border-radius: 8px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  transition: transform 0.2s ease;
+
+  &:active {
+    transform: scale(0.9);
+  }
+
+  &:disabled {
+    border-color: transparent;
+    background-color: rgba(194, 75, 72, 0.7);
+
+    &:active {
+      transform: none;
+      background-color: rgba(194, 75, 72, 0.7);
+    }
+  }
+}
+
+@mixin primary-button {
+  @include button;
+  background-color: $primary-color;
+  color: $text-color;
+  font-size: $font-size-medium;
+
+  &:active {
+    background-color: $active-color;
+  }
+}
+
+@mixin secondary-button {
+  @include button;
+  background-color: $negative-primary-color;
+  color: $primary-color;
+  font-size: $font-size-medium;
+
+  &:active {
+    background-color: $active-color;
+    color: $text-color;
+  }
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0;
+  padding: 0;
+  font-family: "ABeeZeeRegular";
+}
+
+* {
+  font-family: inherit;
+}
+
+h1 {
+  color: $text-color;
+  font-size: 3.5ch;
+}
+
+h2 {
+  font-size: 3ch;
+}
+
+h3 {
+  font-size: 2.5ch;
+}
+
+h4 {
+  font-size: 2ch;
+}
+
+.title {
+  color: $primary-color;
+  font-size: 13ch;
+}
+
+p {
+  font-size: $font-size-base;
+}
+
+.blurry-background {
+  @include flexbox(column, center, center, 3rem);
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(246, 242, 239, 0.8),
+      rgba(246, 242, 239, 0.8)
+    ),
+    url("./sfondo.jpg");
+  background-position: center;
+  background-size: cover;
+  filter: blur(1.5px);
+}
+
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.ReactModal__Content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  border: 3px solid $primary-color;
+  border-radius: 15px;
+  outline: none;
+  background-color: $background-color;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

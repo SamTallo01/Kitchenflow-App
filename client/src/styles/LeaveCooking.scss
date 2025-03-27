@@ -1,0 +1,31 @@
+@use "./App.scss";
+
+.popup-leave {
+  .popup-title {
+    @include App.flexbox(row, space-between, center, 0, 1.5rem);
+    width: 100%;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .button-container-leave {
+    display: flex;
+    justify-content: space-between;
+
+    .cancel-btn {
+      @include App.secondary-button;
+      width: 45%;
+      padding: 1vh;
+      margin: 0;
+    }
+
+    .leave-btn {
+      @include App.primary-button;
+      width: 45%;
+      padding: 1vh;
+      margin: 0;
+    }
+  }
+}

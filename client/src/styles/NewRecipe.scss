@@ -1,0 +1,68 @@
+@use "./App.scss";
+
+.popup-new-recipe {
+  @include App.flexbox(column, center, center, 2rem);
+
+  .popup-title {
+    @include App.flexbox(row, space-between, center, 0, 1.5rem);
+    width: 100%;
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+  .popup-content-container {
+    @include App.flexbox(column, center, center, 1rem);
+    width: 100%;
+
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 1rem;
+      font-size: App.$font-size-base;
+    }
+
+    .max-duration {
+      padding: 0.6rem 1rem;
+      border-radius: 1rem;
+      background-color: #f9f9f9;
+
+      .max-d-left {
+        color: gray;
+        font-weight: bold;
+      }
+
+      .max-d-rigth {
+        color: black;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .button-container-new-recipe {
+    @include App.flexbox(row, space-evenly, center);
+    width: 100%;
+
+    .cancel-btn {
+      @include App.secondary-button;
+      width: 45%;
+      padding: 1vh 3vw;
+    }
+
+    .generate-btn {
+      @include App.primary-button;
+      position: relative;
+      width: 45%;
+      padding: 1vh 3vw;
+
+      .ai-text {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+        font-size: 1ch;
+      }
+    }
+  }
+}

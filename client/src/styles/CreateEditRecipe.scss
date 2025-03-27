@@ -1,0 +1,214 @@
+@use "./App.scss";
+
+.popup-edit-recipe {
+  @include App.flexbox(column, center, center, 2rem);
+
+  .popup-title {
+    @include App.flexbox(row, space-between, center, 0, 1.5rem);
+    width: 100%;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .recipe-container {
+    @include App.flexbox(row, center, start, 0, 1rem);
+    width: 60vw;
+    height: 60vh;
+
+    .recipe-steps,
+    .recipe-ingredients {
+      width: 45%;
+      height: 100%;
+      margin: 10px;
+
+      h4 {
+        margin: 0;
+      }
+    }
+
+    .recipe-steps {
+      .steps-list {
+        height: 80%;
+        margin: 1rem 0;
+        overflow-y: auto;
+        list-style: none;
+
+        .step-item {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px 0;
+          border-bottom: 1px solid #ccc;
+
+          .step-number {
+            flex: 1;
+            font-weight: bold;
+            text-align: left;
+          }
+
+          .step-title {
+            flex: 3;
+            font-size: 16px;
+            text-align: left;
+          }
+
+          .step-actions {
+            flex: 1;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: right;
+
+            .icon {
+              display: inline-flex;
+              position: relative;
+              align-items: center;
+              justify-content: center;
+              padding: 0.3rem;
+              border-radius: 50%;
+
+              &.edit-icon {
+                color: #555;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .vertical-line {
+      width: 2px;
+      height: 100%;
+      background-color: #ccc;
+    }
+
+    .ingredients-list {
+      margin: 1rem 0;
+      padding: 0;
+      list-style: none;
+
+      .ingredient-details {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 0.5rem;
+
+        .ingredient-actions {
+          display: flex;
+          gap: 0.5rem;
+        }
+
+        input {
+          margin-bottom: 0px;
+        }
+      }
+
+      .ingredient-quantity-input,
+      .ingredient-name-input,
+      .ingredient-unit-input {
+        width: 100%; /* Imposta la larghezza al 100% del contenitore */
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 16px; /* Applica il font-size a tutti gli input */
+      }
+
+      .ingredient-unit-input {
+        font-size: 14px; /* Imposta un font-size specifico per l'unità */
+      }
+
+      .ingredient-quantity-input {
+        width: 5rem; /* Imposta una larghezza fissa per la quantità */
+      }
+
+      .ingredient-name-input {
+        width: 8rem; /* Imposta una larghezza fissa per il nome dell'ingrediente */
+      }
+
+      .ingredient-unit-input {
+        width: 5rem; /* Imposta una larghezza fissa per l'unità di misura */
+        height: 1.9rem;
+      }
+
+      .ingredient-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        padding-left: 0px;
+        gap: 0.5rem;
+        border-bottom: 1px solid #ddd;
+
+        .ingredient-details {
+          display: flex;
+          gap: 1rem;
+
+          .ingredient-quantity {
+            text-align: left;
+          }
+
+          .ingredient-unit {
+            text-align: left;
+          }
+
+          .ingredient-name {
+            flex: 3; /* Nome ingrediente */
+          }
+        }
+
+        .ingredient-actions {
+          display: flex;
+          gap: 0.5rem;
+
+          .icon {
+            color: #555;
+          }
+        }
+      }
+    }
+
+    ul {
+      margin: 0 0 15px 0;
+      padding: 0;
+      list-style: none;
+      text-align: left;
+
+      li {
+        margin-bottom: 7px;
+      }
+    }
+
+    .add-step-btn,
+    .add-ingredient-btn {
+      @include App.secondary-button;
+      padding: 1vh 1vw;
+      border: none;
+      box-shadow: none;
+      font-size: App.$font-size-small;
+    }
+  }
+
+  .button-container-recipe {
+    @include App.flexbox(row, end, center, 0, 1rem);
+    position: relative;
+    width: 100%;
+
+    .discard-btn {
+      @include App.secondary-button;
+      position: absolute;
+      left: 0;
+      padding: 1vh 2vw;
+    }
+
+    .save-later-btn {
+      @include App.secondary-button;
+      padding: 1vh 2vw;
+    }
+
+    .save-cook-btn {
+      @include App.primary-button;
+      padding: 1vh 2vw;
+    }
+  }
+}

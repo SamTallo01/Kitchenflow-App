@@ -1,0 +1,34 @@
+@use "./App.scss";
+
+.popup-badge-content {
+  @include App.flexbox(column, center, center, 2rem);
+  width: 100%;
+  height: 100%;
+
+  .popup-title {
+    @include App.flexbox(row, center, center, 0, 1.5rem);
+    position: relative;
+    width: 100%;
+
+    h2 {
+      margin: 0;
+    }
+
+    .close-popup {
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  h3,
+  p {
+    margin: 0;
+    text-align: center;
+  }
+
+  .close-button-badge {
+    @include App.primary-button;
+    width: 30%;
+    padding: 0.5rem 1rem;
+  }
+}

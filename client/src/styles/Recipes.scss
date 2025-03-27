@@ -1,0 +1,245 @@
+@use "./App.scss";
+
+.recipes-page {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-home {
+  @include App.flexbox(column, center, center, 3rem);
+  width: 100%;
+  height: 100vh;
+  background-image: url("./sfondo.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.button-container-recipes {
+  @include App.flexbox(column, center, center, 1.5rem);
+
+  width: 100%;
+}
+
+.start-btn {
+  @include App.primary-button;
+  width: 30%;
+}
+
+.recipes-content {
+  @include App.flexbox(column, center, center, 2rem);
+  height: 90vh;
+  padding: 0 5%;
+
+  .recipes-container-top {
+    @include App.flexbox(column, center, start);
+    align-self: start;
+    width: 75%;
+
+    .recipes-title {
+      margin-left: 2rem;
+    }
+
+    .recipes-filters {
+      @include App.flexbox(row, space-around, center, 1rem);
+      width: 100%;
+      padding: 0.5rem 0;
+      border-radius: 0.5rem;
+      background-color: App.$background-color;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+      /* SearchBar */
+      #search-input-container {
+        position: relative;
+        width: 40%;
+
+        .search-input {
+          box-sizing: border-box;
+          width: 100%;
+          padding: 0.6rem 3rem 0.6rem 1rem;
+          border: none;
+          border-radius: 1rem;
+          outline: none;
+          font-size: App.$font-size-base;
+        }
+
+        .search-icon-mg {
+          position: absolute;
+          top: 50%;
+          right: 10px;
+          width: 20px;
+          transform: translateY(-50%);
+          font-size: 1.2rem;
+        }
+      }
+
+      .max-duration {
+        padding: 0.6rem 1rem;
+        border-radius: 1rem;
+        background-color: #f9f9f9;
+
+        .max-d-left {
+          color: gray;
+          font-weight: bold;
+        }
+
+        .max-d-rigth {
+          color: black;
+          font-weight: bold;
+        }
+      }
+
+      .order-container {
+        @include App.flexbox(row, center, center, 0, 0.5rem);
+        position: relative;
+        padding: 8px 12px;
+        border: 2px solid transparent;
+        border-radius: 1rem;
+        background-color: white;
+
+        &::after {
+          position: absolute;
+          right: 12px;
+          content: "▼";
+          font-size: 0.8rem;
+          pointer-events: none;
+        }
+
+        label {
+          color: #888;
+          font-weight: bold;
+          font-size: 1rem;
+        }
+
+        select {
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          padding-right: 20px;
+          border: none;
+          background: transparent;
+          font-weight: bold;
+          font-size: 1rem;
+
+          &:focus {
+            outline: none;
+          }
+
+          option {
+            background-color: #fff;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  .recipes-container-bottom {
+    @include App.flexbox(row, center, center, 0, 0);
+
+    width: 100%;
+    height: 50%;
+
+    .recipes-list {
+      @include App.flexbox(row, start, center, 0, 3rem);
+      width: 81%;
+      height: 100%;
+      overflow-x: auto;
+
+      .recipe {
+        @include App.flexbox(column, space-between, center, 1rem);
+        position: relative;
+        flex-shrink: 0;
+        width: 200px;
+        height: 230px;
+        padding: 1rem;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        background-color: App.$background-color;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        text-align: center;
+
+        &:last-child {
+          margin-right: 3rem;
+        }
+
+        &.selected {
+          border: 2px solid App.$primary-color;
+        }
+
+        .recipe-info {
+          @include App.flexbox(column, center, center, 1rem);
+
+          h3 {
+            margin: 0;
+          }
+        }
+        .recipe-time {
+          @include App.flexbox(row, center, center, 0, 0.5rem);
+
+          .timer-icon {
+            color: #878787;
+            font-size: 1.5rem;
+          }
+        }
+
+        .overlay-icons {
+          @include App.flexbox(row, center, center, 0, 1rem);
+          position: absolute;
+          bottom: -50px;
+          left: 50%;
+          transform: translateX(-50%);
+
+          div {
+            @include App.flexbox(row, center, center);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: App.$background-color;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+
+            .icon {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+    }
+
+    .vertical-line {
+      width: 2px;
+      height: 100%;
+      margin-right: 5%;
+      margin-left: 1px;
+      background-color: #ccc;
+    }
+
+    .new-recipe-container {
+      @include App.flexbox(column, center, center, 1rem);
+      width: 12%;
+
+      .plus-rectangle {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        padding: 27% 0;
+        border-radius: 8px;
+        background-color: App.$background-color;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        text-align: center;
+
+        .plus-icon {
+          color: #555;
+          font-size: 3.5rem;
+        }
+      }
+
+      h3 {
+        margin: 0;
+      }
+    }
+  }
+}

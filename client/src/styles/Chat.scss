@@ -1,0 +1,181 @@
+@use "../styles/App.scss" as *;
+
+/* General Chat Container */
+.chat-container {
+  display: flex;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  align-items: center;
+  justify-content: space-between;
+  width: 500px;
+  padding: 10px;
+  gap: 10px;
+  transform: translateX(-50%);
+  border-radius: 10px;
+  background-color: $background-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Voice Wave Container */
+.wave-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  gap: 5px;
+}
+
+.wave {
+  width: 6px;
+  height: 8px;
+  transform-origin: center;
+  border-radius: 10px;
+  background-color: black;
+}
+
+/* Conditional Animation */
+.wave.active {
+  animation: waveAnimation 1s ease-in-out infinite;
+}
+
+.wave:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.wave:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Wave Animation */
+@keyframes waveAnimation {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    height: 20px;
+    opacity: 1;
+  }
+}
+
+/* Microphone Icon */
+.mic-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Input Box */
+.chat-input {
+  flex: 1;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  background-color: $negative-primary-color;
+  color: gray;
+  font-size: 14px;
+}
+
+.chat-input:focus {
+  background-color: #ffffff;
+  color: black;
+}
+
+.chat-input::placeholder {
+  color: #aaa;
+}
+
+/* Send Icon */
+.send-icon {
+  border: none;
+  background-color: transparent;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+// MESSAGE BUBBLE
+
+/* Container to position the message bubble */
+.bubble-container {
+  display: flex;
+  margin: 10px;
+}
+
+.bubble-container.right {
+  justify-content: flex-end;
+}
+
+.bubble-container.left {
+  justify-content: flex-start;
+}
+
+/* Message bubble styling */
+.message-bubble {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  word-wrap: break-word;
+  position: relative;
+}
+
+.message-bubble.first {
+  max-width: 100%;
+  font-size: 20px;
+}
+
+.bubble-container.right .message-bubble {
+  border-bottom-right-radius: 0;
+  background-color: $primary-color;
+  color: $negative-primary-color;
+}
+
+.bubble-container.left .message-bubble {
+  border-bottom-left-radius: 0;
+  background-color: $background-color;
+  color: #333;
+}
+
+.message-text {
+  display: block;
+}
+
+.message-image {
+  width: 100%; /* L'immagine si adatta alla larghezza del contenitore */
+  max-width: 100%; /* Rimuove il limite fisso */
+  height: auto; /* Mantiene le proporzioni */
+  margin-top: 10px; /* Spaziatura tra testo e immagine */
+  object-fit: cover; /* Evita deformazioni */
+  border-radius: 10px; /* Arrotondamento degli angoli */
+}
+
+/* Sender Name */
+.sender-name {
+  display: block;
+  margin-top: 5px;
+  font-size: 10px;
+  text-align: right;
+}
+
+// MESSAGES BOX
+
+.messages-container {
+  display: flex;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  flex-direction: column;
+  width: 500px;
+  height: 72%;
+  padding: 10px;
+  overflow-y: auto;
+  gap: 10px;
+  transform: translateX(-50%);
+}
+
+.messages-container::-webkit-scrollbar {
+  display: none;
+}

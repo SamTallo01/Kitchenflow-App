@@ -1,0 +1,43 @@
+@use "./App.scss";
+
+.popup-duration {
+  @include App.flexbox(column, center, center, 1rem);
+
+  .popup-title {
+    @include App.flexbox(row, space-between, center, 0, 1.5rem);
+    width: 100%;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .wheel-container {
+    @include App.flexbox(row, center, center);
+
+    .wheel-options {
+      @include App.flexbox(column, center, center);
+      font-size: App.$font-size-base;
+
+      .wheel-option {
+        padding: 10px;
+
+        &.selected {
+          transform: scale(1.2);
+          font-weight: bold;
+        }
+      }
+    }
+  }
+
+  .button-container-duration {
+    @include App.flexbox(column, center, center, 1.5rem);
+    width: 100%;
+
+    .set-duration-btn {
+      @include App.primary-button;
+      width: 40%;
+      padding: 1vh 2vw;
+    }
+  }
+}

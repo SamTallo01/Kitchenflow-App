@@ -1,0 +1,49 @@
+@use "./App.scss" as *;
+
+.ingredients {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  width: 400px;
+  height: 60px;
+  transform: translateY(-0%);
+}
+
+.ingredient {
+  @include flexbox(column, center, center, 0, 1rem);
+  width: 300px;
+  height: 40px;
+  border-right: 2px solid $primary-color;
+  border-bottom: 2px solid $primary-color;
+  border-left: 2px solid $primary-color;
+  background-color: $background-color;
+
+  &:last-child {
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  }
+
+  h4 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.ingredient-title {
+  @include flexbox(column, center, center, 0, 1rem);
+  width: 300px;
+  height: 60px;
+  border: 2px solid $primary-color;
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  background-color: $primary-color;
+  color: $negative-primary-color;
+}
+
+.ingredient-list {
+  @include flexbox(column, center, center, 0, 1rem);
+}

@@ -1,0 +1,37 @@
+@use "../styles/App.scss" as *;
+
+.maryposa {
+  display: flex;
+  position: absolute;
+  top: 50px;
+  right: 2%;
+  width: 300px;
+  height: 300px;
+}
+
+.maryposa-button {
+  @include secondary-button;
+  display: flex;
+  position: relative;
+  top: 50%;
+  left: -50px;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  transform: translateY(-50%);
+
+  &.muted {
+    @include primary-button;
+    padding: 0;
+
+    &:active {
+      transform: translateY(-50%) scale(1);
+    }
+  }
+
+  &:active {
+    transform: translateY(-50%) scale(1);
+  }
+}

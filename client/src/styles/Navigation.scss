@@ -1,0 +1,30 @@
+@use "./App.scss";
+
+.header {
+  @include App.flexbox(row, center, center);
+  position: relative;
+  left: 50%;
+  width: 50vw;
+  height: 8.5vh;
+  transform: translateX(-50%);
+  border-radius: 0 0 50px 50px;
+  background-color: App.$primary-color;
+  color: white;
+}
+
+.back-btn {
+  @include App.flexbox(row, center, center);
+  @include App.primary-button;
+  position: absolute;
+  top: 0.5vh;
+  left: 2%;
+  width: 7.5vh;
+  height: 7.5vh;
+  padding: 0;
+  border-radius: 50%;
+
+  .icon {
+    color: white;
+    font-size: 5vh;
+  }
+}

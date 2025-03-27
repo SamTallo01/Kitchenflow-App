@@ -1,0 +1,29 @@
+@use "./App.scss";
+
+.popup-discard {
+  .popup-title {
+    @include App.flexbox(row, space-between, center, 0, 1.5rem);
+    width: 100%;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .button-container-discard {
+    display: flex;
+    justify-content: space-between;
+
+    .keep-btn {
+      @include App.secondary-button;
+      width: 45%;
+      padding: 1vh 2vw;
+    }
+
+    .discard-btn {
+      @include App.primary-button;
+      width: 45%;
+      padding: 1vh 2vw;
+    }
+  }
+}
