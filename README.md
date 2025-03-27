@@ -38,6 +38,7 @@ This is a tablet base application, it's pourpose helps users who have difficulti
 
 This project was created by:
 
--   [Francesco Risso, s326834](mailto:s326834@studenti.polito.it)
--   [Giovanni Giordano, s331574](mailto:s331574@studenti.polito.it)
+-   [Vincenzo Vantaggiato, s323112](mailto:s323112@studenti.polito.it)
+-   [Emanuele Frisi, s331670](mailto:s331670@studenti.polito.it)
+-   [Alessandro Genco, s324502](mailto:s324502@studenti.polito.it)
 -   [Samuele Tallone, s334046](mailto:s334046@studenti.polito.it)
